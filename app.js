@@ -37,6 +37,8 @@ function hitBoss() {
     if (boss.health <= 0) boss.health = 0
     checkBoss()
     console.log('Boss Health', boss.health)
+
+    drawBoss()
 }
 
 // setInterval(bossAttack, 5000)
@@ -49,15 +51,19 @@ function bossAttack() {
         }
     })
     console.log('Boss Damage', boss.damage)
+
+    drawPlayers()
 }
 
 
 function checkBoss() {
     if (boss.health <= 0) {
         boss.damage = boss.damage * 2
-        boss.health = 100
+        // boss.health = 100
     }
     console.log('Boss Damage', boss.damage)
+
+    getReward()
 }
 
 function drawPlayers() {
@@ -68,10 +74,10 @@ function drawPlayers() {
             let p1GoldElm = document.getElementById('p1gold')
             let p1LevelElm = document.getElementById('p1level')
 
-            p1NameElm.innerText = hero.name
-            p1HPElm.innerText = hero.health.toString()
-            p1GoldElm.innerText = hero.gold.toString()
-            p1LevelElm.innerText = hero.level
+            p1NameElm.innerText = `Name: ${hero.name}`
+            p1HPElm.innerText = `Health: ${hero.health.toString()}`
+            p1GoldElm.innerText = `Gold: ${hero.gold.toString()}`
+            p1LevelElm.innerText = `Level: ${hero.level}`
         }
         if (hero.player == 2) {
             let p2NameElm = document.getElementById('p2name')
@@ -79,11 +85,42 @@ function drawPlayers() {
             let p2GoldElm = document.getElementById('p2gold')
             let p2LevelElm = document.getElementById('p2level')
 
-            p2NameElm.innerText = hero.name
-            p2HPElm.innerText = hero.health.toString()
-            p2GoldElm.innerText = hero.gold.toString()
-            p2LevelElm.innerText = hero.level
+            p2NameElm.innerText = `Name: ${hero.name}`
+            p2HPElm.innerText = `Health: ${hero.health.toString()}`
+            p2GoldElm.innerText = `Gold: ${hero.gold.toString()}`
+            p2LevelElm.innerText = `Level: ${hero.level}`
         }
     }
     )
 }
+
+
+function drawBoss() {
+    let bossNameElm = document.getElementById('bossName')
+    let bossHPElm = document.getElementById('bossHP')
+
+    bossNameElm.innerText = `Name: ${boss.name}`
+    bossHPElm.innerText = `HP: ${boss.health.toString()}`
+}
+
+function getReward() {
+    heroes.forEach(hero => {
+        if (boss.health <= 0) {
+            hero.gold += boss.damage * 2
+            console.log(hero.gold);
+        }
+    })
+    drawPlayers()
+}
+
+function buyPotion(player, value) {
+    let playerSelected = heroes[player]
+    if (playerSelected.gold > value) {
+        playerSelected.health += value
+        playerSelected.gold -= value
+    }
+    drawPlayers()
+}
+
+drawPlayers()
+drawBoss()
