@@ -1,0 +1,10 @@
+body {
+    background-color: darkgrey;
+    /* background-image: url(https://wallpapers-clan.com/wp-content/uploads/2023/11/aesthetic-hollow-knight-purple-desktop-wallpaper-preview.jpg); */
+    width: 100%;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+}
