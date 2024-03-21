@@ -7,4 +7,25 @@ body {
 img {
     object-fit: cover;
     width: 100%;
+    max-height: 100px;
+}
+
+.boss-image {
+    max-height: 300px;
+}
+
+.dead {
+    filter: grayscale()
+}
+
+.im-fell double pica-regular {
+    font-family: "IM Fell Double Pica", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.im-fell double pica-regular-italic {
+    font-family: "IM Fell Double Pica", serif;
+    font-weight: 400;
+    font-style: italic;
 }

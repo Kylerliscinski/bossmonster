@@ -31,9 +31,9 @@ const boss = {
 
 
 function hitBoss() {
-    let currentHealth
-    currentHealth = boss.health
-    boss.health -= 20
+    heroes.forEach(hero => {
+        boss.health -= hero.damage
+    });
     if (boss.health <= 0) boss.health = 0
     checkBoss()
     console.log('Boss Health', boss.health)
@@ -41,7 +41,7 @@ function hitBoss() {
     drawBoss()
 }
 
-// setInterval(bossAttack, 5000)
+setInterval(bossAttack, 500)
 
 function bossAttack() {
     heroes.forEach(hero => {
@@ -51,7 +51,7 @@ function bossAttack() {
         }
     })
     console.log('Boss Damage', boss.damage)
-
+    // checkPlayers()
     drawPlayers()
 }
 
@@ -121,6 +121,31 @@ function buyPotion(player, value) {
     }
     drawPlayers()
 }
+
+// function checkPlayers() {
+//     let playersHealth = null
+//     let p1ImgElm = document.getElementById('p1img')
+//     let p2ImgElm = document.getElementById('p2img')
+
+//     heroes.forEach(hero => {
+//         playersHealth += hero.health
+//         if (hero.health = 0) {
+//             p1ImgElm.classList.add('dead')
+//         }
+
+//         if (hero.health = 0) {
+//             p2ImgElm.classList.add('dead')
+//         }
+//     });
+
+//     if (playersHealth == 0) {
+//         let reset = document.getElementById('reset')
+//         reset.classList.remove('d-none')
+//     }
+
+
+
+// }
 
 drawPlayers()
 drawBoss()

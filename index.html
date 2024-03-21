@@ -8,6 +8,9 @@
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/
+<link rel=" preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,10 +22,11 @@
     </header>
 
     <!-- SECTION Players -->
-    <section class="row text-light fw-3">
+    <section id="players" class="row text-light fw-3">
         <div class="col-3 bg-dark border border-light rounded m-3">
             <p id="p1name">000</p>
-            <img src="https://img.redbull.com/images/c_fill,g_auto,w_450,h_600/q_auto:low,f_auto/redbullcom/2017/07/13/f35f87b7-93ee-4d30-935a-dbfdb77d22cd/hollow-knight-switch.jpg.jpg"
+            <img id="p1img"
+                src="https://img.redbull.com/images/c_fill,g_auto,w_450,h_600/q_auto:low,f_auto/redbullcom/2017/07/13/f35f87b7-93ee-4d30-935a-dbfdb77d22cd/hollow-knight-switch.jpg.jpg"
                 alt="Prev Img">
             <p id="p1hp">000</p>
             <p id="p1gold">000</p>
@@ -30,7 +34,8 @@
         </div>
         <div class="col-3 bg-dark border border-light rounded m-3">
             <p id="p2name">000</p>
-            <img src="https://steamuserimages-a.akamaihd.net/ugc/947348317608994032/5DD83A08AA99638626CEA67618A18A9884F8F3D9/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+            <img id="p2img"
+                src="https://steamuserimages-a.akamaihd.net/ugc/947348317608994032/5DD83A08AA99638626CEA67618A18A9884F8F3D9/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
                 alt="Kyler Img">
             <p id="p2hp">000</p>
             <p id="p2gold">000</p>
@@ -44,7 +49,7 @@
         <div onclick="hitBoss()" class="col-8 bg-dark border border-light rounded">
             <p id="bossHP">HP</p>
             <p id="bossName">Monster Name</p>
-            <img src="https://i.redd.it/glc4eegmj6g21.jpg" alt="Monster Image" class="">
+            <img src="https://i.redd.it/glc4eegmj6g21.jpg" alt="Monster Image" class="boss-image">
         </div>
     </section>
 
@@ -52,20 +57,24 @@
     <section class="row text-light fw-3 text-center m-3 justify-content-around">
         <div class="col-5 bg-dark border border-light rounded">
             <div>
-                <button onclick="buyPotion(0, 10)">For Player 1 Potion 10-hp 10-g
+                <button onclick="buyPotion(0, 10)">For Player 1 Potion 10 Health for 10 Gold
                 </button>
             </div>
             <div>
-                <button onclick="buyPotion(1, 10)">For Player 2 Potion 10-hp 10-g
+                <button onclick="buyPotion(1, 10)">For Player 2 Potion 10 Health for 10 Gold
                 </button>
             </div>
             <div>
-                <p>Potion
-                </p>
+                <button onclick="buyPotion(0, 30)">For Player 1 Potion 30 Health for 30 Gold
+                </button>
+            </div>
+            <div>
+                <button onclick="buyPotion(1, 30)">For Player 2 Potion 30 Health for 30 Gold
+                </button>
             </div>
         </div>
-        <div class="col-1 bg-dark border border-light rounded">
-            <button>RESET</button>
+        <div id="reset" class="col-1 bg-dark border border-light rounded d-none">
+            <button onclick="reset()">RESET</button>
         </div>
     </section>
 
