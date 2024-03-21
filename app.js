@@ -4,7 +4,6 @@ const heroes = [
     {
         player: 1,
         name: 'Prev',
-        type: 'dwarf',
         damage: 5,
         health: 100,
         gold: 0,
@@ -13,7 +12,6 @@ const heroes = [
     {
         player: 2,
         name: 'Kyler',
-        type: 'elf',
         damage: 10,
         health: 50,
         gold: 0,
@@ -41,7 +39,16 @@ function hitBoss() {
     drawBoss()
 }
 
-setInterval(bossAttack, 500)
+function startGame() {
+    setInterval(bossAttack, 2000)
+}
+
+//NOTE - Potential wait command for in between battles
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
+// console.log('Hello');
+// sleep(2000).then(() => { console.log('World!'); });
 
 function bossAttack() {
     heroes.forEach(hero => {
@@ -59,10 +66,8 @@ function bossAttack() {
 function checkBoss() {
     if (boss.health <= 0) {
         boss.damage = boss.damage * 2
-        // boss.health = 100
     }
-    console.log('Boss Damage', boss.damage)
-
+    // console.log('Boss Damage', boss.damage)
     getReward()
 }
 
@@ -121,31 +126,6 @@ function buyPotion(player, value) {
     }
     drawPlayers()
 }
-
-// function checkPlayers() {
-//     let playersHealth = null
-//     let p1ImgElm = document.getElementById('p1img')
-//     let p2ImgElm = document.getElementById('p2img')
-
-//     heroes.forEach(hero => {
-//         playersHealth += hero.health
-//         if (hero.health = 0) {
-//             p1ImgElm.classList.add('dead')
-//         }
-
-//         if (hero.health = 0) {
-//             p2ImgElm.classList.add('dead')
-//         }
-//     });
-
-//     if (playersHealth == 0) {
-//         let reset = document.getElementById('reset')
-//         reset.classList.remove('d-none')
-//     }
-
-
-
-// }
 
 drawPlayers()
 drawBoss()
